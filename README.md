@@ -51,7 +51,6 @@ mw.loader.using( 'onoi.md5' ).done( function () {
 - `onoi.localForage` (1.4.0)
 - `onoi.async` (1.0)
 - `onoi.jstorage` (0.4.12)
-
 - `onoi.blobstore` (0.1, a simple storage engine using `localForage` with time eviction)
 
 ## Contribution and support
@@ -66,6 +65,7 @@ A list of people who have made contributions in the past can be found [here][con
 ## Release notes
 
 - 0.1 (2016-04-05)
+ - Initial release
 
 ## License
 
