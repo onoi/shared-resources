@@ -16,12 +16,60 @@ define( 'ONOI_SHARED_RESOURCES_VERSION', '0.1' );
 
 if ( defined( 'MEDIAWIKI' ) ) {
 
+	// Core styles
+	$GLOBALS['wgResourceModules']['onoi.qtip.core'] = array(
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => '../vendor/onoi/shared-resources',
+		'position' => 'bottom',
+		'styles' => array(
+			'res/jquery.qtip/core/jquery.qtip.css'
+		),
+		'scripts' => array(
+			'res/jquery.qtip/core/jquery.qtip.js'
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
+
+	// Core styles, Basic colour styles, CSS3 styles
+	// Viewport adjustment, SVG support
+	$GLOBALS['wgResourceModules']['onoi.qtip.extended'] = array(
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => '../vendor/onoi/shared-resources',
+		'position' => 'bottom',
+		'styles' => array(
+			'res/jquery.qtip/extended/jquery.qtip.css'
+		),
+		'scripts' => array(
+			'res/jquery.qtip/extended/jquery.qtip.js'
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
+
+	$GLOBALS['wgResourceModules']['onoi.qtip'] = array(
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => '../vendor/onoi/shared-resources',
+		'position' => 'bottom',
+		'dependencies'  => array(
+			'onoi.qtip.extended',
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
+
 	$GLOBALS['wgResourceModules']['onoi.md5'] = array(
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => '../vendor/onoi/shared-resources',
 		'position' => 'bottom',
 		'scripts' => array(
-			'res/md5/md5.js'
+			'res/md5/jquery.md5.js'
 		),
 		'targets' => array(
 			'mobile',
@@ -81,6 +129,22 @@ if ( defined( 'MEDIAWIKI' ) ) {
 		),
 		'dependencies'  => array(
 			'onoi.localForage',
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
+
+	$GLOBALS['wgResourceModules']['onoi.util'] = array(
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => '../vendor/onoi/shared-resources',
+		'position' => 'bottom',
+		'scripts' => array(
+			'res/onoi.util.js'
+		),
+		'dependencies'  => array(
+			'onoi.md5',
 		),
 		'targets' => array(
 			'mobile',

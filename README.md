@@ -4,9 +4,8 @@
 [![Packagist download count](https://poser.pugx.org/onoi/shared-resources/d/total.png)](https://packagist.org/packages/onoi/shared-resources)
 [![Dependency Status](https://www.versioneye.com/php/onoi:shared-resources/badge.png)](https://www.versioneye.com/php/onoi:shared-resources)
 
-shared-resources were part of the [Semantic MediaWiki][smw] code base and is
-now being deployed as separate library so that [ResourceLoader][rl] modules
-can be used independently.
+Some resources in this package were part of the [Semantic MediaWiki][smw] code base and are
+now deployed as separate library so that [ResourceLoader][rl] modules can be used independently.
 
 ## Requirements
 
@@ -20,7 +19,7 @@ the dependency to your [composer.json][composer].
 ```json
 {
 	"require": {
-		"onoi/shared-resources": "~0.1"
+		"onoi/shared-resources": "~0.2"
 	}
 }
 ```
@@ -31,8 +30,6 @@ the dependency to your [composer.json][composer].
 $GLOBALS['wgResourceModules']['ext.something'] = array(
 	...
 	'dependencies'  => array(
-		'onoi.rangeslider',
-		'onoi.blockUI',
 		'onoi.md5',
 		'onoi.blobstore'
 	);
@@ -45,13 +42,14 @@ mw.loader.using( 'onoi.md5' ).done( function () {
 
 ### Resources
 
-- `onoi.md5` (2.3.0)
+- `onoi.md5` (1.1.0)
 - `onoi.blockUI` (2.70)
 - `onoi.rangeslider` (2.1.2)
-- `onoi.localForage` (1.4.0)
+- `onoi.localForage` (1.4.2)
 - `onoi.async` (1.0)
+- `onoi.qtip` (3.0.3)
 - `onoi.jstorage` (0.4.12)
-- `onoi.blobstore` (0.1, a simple storage engine using `localForage` with time eviction)
+- `onoi.blobstore` (0.1)
 
 ## Contribution and support
 
@@ -63,6 +61,11 @@ A list of people who have made contributions in the past can be found [here][con
 * [Submit a pull request](https://github.com/onoi/shared-resources/pulls)
 
 ## Release notes
+
+- 0.2 (2016-05-25)
+ - Addedd `onoi.qtip` 3.0.3
+ - Replaced `onoi.localForage` 1.4.0 with 1.4.2
+ - Replaced `onoi.md5` 2.3.0 with 1.1.0 as some issues were encountered when loading it as resource
 
 - 0.1 (2016-04-05)
  - Initial release
@@ -78,6 +81,7 @@ plug-ins are deployed with their respective published licenses.
 - [Mozilla localForage](https://github.com/mozilla/localForage/releases), Apache License 2.0
 - [jquery.async](http://mess.genezys.net/jquery/jquery.async.php) Dual licensed under the MIT and GPL licenses
 - [jStorage](https://github.com/andris9/jStorage), Unlicense
+- [jquery.qtip](http://qtip2.com/), Dual licensed under the MIT and GPL licenses
 - `onoi.blobstore` (0.1, GPL 2+)
 
 [composer]: https://getcomposer.org/
