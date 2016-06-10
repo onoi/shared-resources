@@ -140,6 +140,9 @@ if ( defined( 'MEDIAWIKI' ) ) {
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => '../vendor/onoi/shared-resources',
 		'position' => 'bottom',
+		'styles' => array(
+			'res/onoi.util.css'
+		),
 		'scripts' => array(
 			'res/onoi.util.js'
 		),
