@@ -19,8 +19,9 @@
 	 * @constructor
 	 *
 	 * @param namespace {string}
+	 * @param description {string}
 	 */
-	var FORAGE = function ( namespace ) {
+	var FORAGE = function ( namespace, description ) {
 
 		this.exception = function StorageException( message ) {
 			this.message = message;
@@ -28,18 +29,19 @@
 		}
 
 		if ( namespace === undefined || namespace.indexOf( ':' ) < 0 ) {
-			throw new this.exception( "Invalid storage name of '" + namespace + "' ." );
+			throw new this.exception( "Invalid storage name ('" + namespace + "'), expected a `:`." );
 		};
 
 		var array = namespace.split( ':' );
 
-		localforage.config( {
+		var config ={
 		    name: array.shift(),
-		    storeName: array.join( ':' )
-		} );
+		    storeName: array.join( ':' ),
+		    description : description
+		};
 
 		this.namespace = namespace;
-		this.hasForage = typeof( localforage ) !== "undefined";
+		this.store = typeof( localforage ) !== "undefined" ? localforage.createInstance( config ) : null;
 	};
 
 	/**
@@ -53,7 +55,7 @@
 	 */
 	FORAGE.prototype.set = function( key, value, ttl ) {
 
-		if( !this.hasForage ) {
+		if( this.store === null ) {
 			return false;
 		}
 
@@ -64,7 +66,7 @@
 			value : value
 		};
 
-		localforage.setItem( key, item , function( err, value ) {} );
+		this.store.setItem( key, item , function( err, value ) {} );
 	};
 
 	/**
@@ -81,11 +83,13 @@
 			throw new this.exception( "Expected a function as callback." );
 		};
 
-		if( !this.hasForage ) {
+		var store = this.store;
+
+		if( store === null ) {
 			return callback( null );
 		}
 
-		localforage.getItem( key, function( err, value ) {
+		store.getItem( key, function( err, value ) {
 
 			var item = value,
 				now = new Date();
@@ -95,7 +99,7 @@
 			};
 
 			if ( item.ttl && item.ttl + item.time < now.getTime() ) {
-				localforage.removeItem( key );
+				store.removeItem( key );
 				return callback( null );
 			}
 
@@ -111,10 +115,11 @@
 	 *
 	 * @param namespace {string}
 	 * @param engine {string}
+	 * @param description {string}
 	 *
 	 * @return {this}
 	 */
-	var blobstore = function ( namespace, engine ) {
+	var blobstore = function ( namespace, engine, description = '' ) {
 
 		this.VERSION = 1;
 
@@ -122,10 +127,21 @@
 		this.engine = engine;
 
 		if ( this.engine === '' || this.engine === undefined ) {
-			this.engine = new FORAGE( namespace );
+			this.engine = new FORAGE( namespace, description );
 		}
 
 		return this;
+	};
+
+	/**
+	 * @since  1.0
+	 *
+	 * @param key {string}
+	 * @param value {string}
+	 * @param ttl {integer}
+	 */
+	blobstore.prototype.getNamespace = function() {
+		return this.namespace;
 	};
 
 	/**
