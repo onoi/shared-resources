@@ -119,7 +119,7 @@
 	 *
 	 * @return {this}
 	 */
-	var blobstore = function ( namespace, engine, description = '' ) {
+	var blobstore = function ( namespace, engine, description ) {
 
 		this.VERSION = 1;
 
@@ -127,7 +127,7 @@
 		this.engine = engine;
 
 		if ( this.engine === '' || this.engine === undefined ) {
-			this.engine = new FORAGE( namespace, description );
+			this.engine = new FORAGE( namespace, ( description === undefined ? '' : description ) );
 		}
 
 		return this;
