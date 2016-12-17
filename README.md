@@ -50,6 +50,7 @@ mw.loader.using( 'onoi.md5' ).done( function () {
 - `onoi.qtip` (3.0.3)
 - `onoi.jstorage` (0.4.12)
 - `onoi.blobstore` (0.1)
+- `onoi.clipboard` (1.5.15)
 
 ## Contribution and support
 
@@ -61,6 +62,9 @@ A list of people who have made contributions in the past can be found [here][con
 * [Submit a pull request](https://github.com/onoi/shared-resources/pulls)
 
 ## Release notes
+
+- 0.3 (2016-12-17)
+ - Addedd `onoi.clipboard` 1.5.15
 
 - 0.2 (2016-05-25)
  - Addedd `onoi.qtip` 3.0.3
@@ -82,6 +86,7 @@ plug-ins are deployed with their respective published licenses.
 - [jquery.async](http://mess.genezys.net/jquery/jquery.async.php) Dual licensed under the MIT and GPL licenses
 - [jStorage](https://github.com/andris9/jStorage), Unlicense
 - [jquery.qtip](http://qtip2.com/), Dual licensed under the MIT and GPL licenses
+- [clipboard.js](https://github.com/zenorocha/clipboard.js), MIT License
 - `onoi.blobstore` (0.1, GPL 2+)
 
 [composer]: https://getcomposer.org/
