@@ -180,4 +180,18 @@ if ( defined( 'MEDIAWIKI' ) ) {
 			'desktop'
 		)
 	);
+
+	$GLOBALS['wgResourceModules']['onoi.clipboard'] = array(
+		'localBasePath' => __DIR__ ,
+		'remoteExtPath' => '../vendor/onoi/shared-resources',
+		'position' => 'bottom',
+		'scripts' => array(
+			'res/clipboard/clipboard.js',
+			'res/onoi.clipboard.js'
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
+	);
 }
