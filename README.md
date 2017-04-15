@@ -19,12 +19,14 @@ the dependency to your [composer.json][composer].
 ```json
 {
 	"require": {
-		"onoi/shared-resources": "~0.2"
+		"onoi/shared-resources": "~0.4"
 	}
 }
 ```
 
 ## Usage
+
+Define a dependency or load a specifc resource module.
 
 ```
 $GLOBALS['wgResourceModules']['ext.something'] = array(
@@ -34,7 +36,8 @@ $GLOBALS['wgResourceModules']['ext.something'] = array(
 		'onoi.blobstore'
 	);
 );
-
+```
+```
 mw.loader.using( 'onoi.md5' ).done( function () {
 	// do something
 } );
@@ -51,6 +54,8 @@ mw.loader.using( 'onoi.md5' ).done( function () {
 - `onoi.jstorage` (0.4.12)
 - `onoi.blobstore` (0.1)
 - `onoi.clipboard` (1.5.15)
+- `onoi.dataTables` (1.10.13)
+- `onoi.bootstrap.tab` (v4.0.0-alpha.6)
 
 ## Contribution and support
 
@@ -63,16 +68,23 @@ A list of people who have made contributions in the past can be found [here][con
 
 ## Release notes
 
+- 0.4 (2017-04-15)
+  - Addedd `onoi.dataTables` using `jquery.dataTables` 1.10.13
+  - Addedd `onoi.highlight` using `jquery.highlight`
+  - Addedd `onoi.bootstrap.tab` using Bootstrap (v4.0.0-alpha.6): tab.js
+  - Replaced `clipboard.js` v1.5.15 with v1.6.1
+  - Replaced `localForage.js` 1.4.2 with 1.5.0
+
 - 0.3 (2016-12-17)
- - Addedd `onoi.clipboard` 1.5.15
+  - Addedd `onoi.clipboard` 1.5.15
 
 - 0.2 (2016-05-25)
- - Addedd `onoi.qtip` 3.0.3
- - Replaced `onoi.localForage` 1.4.0 with 1.4.2
- - Replaced `onoi.md5` 2.3.0 with 1.1.0 as some issues were encountered when loading it as resource
+  - Addedd `onoi.qtip` 3.0.3
+  - Replaced `onoi.localForage` 1.4.0 with 1.4.2
+  - Replaced `onoi.md5` 2.3.0 with 1.1.0 as some issues were encountered when loading it as resource
 
 - 0.1 (2016-04-05)
- - Initial release
+  - Initial release
 
 ## License
 
@@ -86,7 +98,10 @@ plug-ins are deployed with their respective published licenses.
 - [jquery.async](http://mess.genezys.net/jquery/jquery.async.php) Dual licensed under the MIT and GPL licenses
 - [jStorage](https://github.com/andris9/jStorage), Unlicense
 - [jquery.qtip](http://qtip2.com/), Dual licensed under the MIT and GPL licenses
+- [jquery.dataTables](https://datatables.net/), MIT licenses
+- [jquery.highlight](http://bartaz.github.io/sandbox.js/jquery.highlight.html/), MIT licenses
 - [clipboard.js](https://github.com/zenorocha/clipboard.js), MIT License
+- [Bootstrap](https://github.com/twbs/bootstrap), MIT licenses
 - `onoi.blobstore` (0.1, GPL 2+)
 
 [composer]: https://getcomposer.org/
