@@ -54,7 +54,7 @@ mw.loader.using( 'onoi.md5' ).done( function () {
 - `onoi.jstorage` (0.4.12)
 - `onoi.blobstore` (0.1)
 - `onoi.clipboard` (1.5.15)
-- `onoi.dataTables` (1.10.13)
+- `onoi.dataTables` (`jquery.dataTables` 1.10.15)
 - `onoi.bootstrap.tab` (v4.0.0-alpha.6)
 
 ## Contribution and support
@@ -68,6 +68,9 @@ A list of people who have made contributions in the past can be found [here][con
 
 ## Release notes
 
+- 0.4.1 (2017-04-22)
+  - Replaced `jquery.dataTables` 1.10.13 with 1.10.15
+  
 - 0.4 (2017-04-15)
   - Addedd `onoi.dataTables` using `jquery.dataTables` 1.10.13
   - Addedd `onoi.highlight` using `jquery.highlight`
