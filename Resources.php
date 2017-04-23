@@ -219,8 +219,8 @@ if ( defined( 'MEDIAWIKI' ) ) {
 			'res/bootstrap/bootstrap.4.mediawiki.tab.css'
 		),
 		'scripts' => array(
-			'res/bootstrap/bootstrap.4.tab.js',
-			'res/bootstrap/bootstrap.4.util.js'
+			'res/bootstrap/bootstrap.4.util.js',
+			'res/bootstrap/bootstrap.4.tab.js'
 		),
 		'targets' => array(
 			'mobile',
