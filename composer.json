@@ -6,10 +6,10 @@
 		"MediaWiki"
 	],
 	"homepage": "https://github.com/onoi/common-resources",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "mwjames",
+			"name": "James Hong Kong",
 			"role": "Developer"
 		}
 	],
